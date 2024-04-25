@@ -109,11 +109,7 @@ adventure.start("start")
 AdventureKit is an open-source project, and contributions are welcome! Whether you're interested in adding new features, fixing bugs, or improving documentation, your input is valued.
 ### Get Started:
 
-Ready to embark on your own text-based adventure? Install AdventureKit via pip and start crafting your story today!
-
-```bash
-pip install adventurekit
-```
+You will have to install the github repo
 
 ### All Functions:
 
