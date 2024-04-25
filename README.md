@@ -109,9 +109,22 @@ adventure.start("start")
 AdventureKit is not on PyPi as of right now, though you can easily install it through the terminal.
 Here are the commands to do so!
 
-POWERSHELL:
+WINDOWS:
 ```bash
 git clone https://github.com/AllergenStudios/AdventureKit
+cd AdventureKit
+pip install -r requirements.txt
+Rename-Item -Path "main.py" -NewName "adventurekit.py"
+Move-Item -Path "adventurekit.py" -Destination "..\"
+```
+
+LINUX
+```bash
+git clone https://github.com/AllergenStudios/AdventureKit
+cd AdventureKit
+pip install -r requirements.txt
+mv main.py adventurekit.py
+mv adventurekit.py ..
 ```
 
 ### All Functions:
