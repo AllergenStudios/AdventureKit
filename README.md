@@ -104,12 +104,15 @@ def do_not_enter():
 adventure.start("start")
 ```
 
-### Contributing:
-
-AdventureKit is an open-source project, and contributions are welcome! Whether you're interested in adding new features, fixing bugs, or improving documentation, your input is valued.
 ### Get Started:
 
-You will have to install the github repo
+AdventureKit is not on PyPi as of right now, though you can easily install it through the terminal.
+Here are the commands to do so!
+
+POWERSHELL:
+```bash
+git clone https://github.com/AllergenStudios/AdventureKit
+```
 
 ### All Functions:
 
