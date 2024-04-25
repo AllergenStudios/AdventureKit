@@ -30,7 +30,7 @@ AdventureKit follows a simple structure, allowing developers to focus on craftin
 The provided code snippet offers a simple example of AdventureKit in action.
 
 ```py
-from pyventurelib import TextAdventure
+from adventurekit import TextAdventure
 
 
 adventure = TextAdventure()
