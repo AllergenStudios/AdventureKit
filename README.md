@@ -114,8 +114,7 @@ WINDOWS:
 git clone https://github.com/AllergenStudios/AdventureKit
 cd AdventureKit
 pip install -r requirements.txt
-Rename-Item -Path "main.py" -NewName "adventurekit.py"
-Move-Item -Path "adventurekit.py" -Destination "..\"
+python sample.py
 ```
 
 LINUX
@@ -123,8 +122,7 @@ LINUX
 git clone https://github.com/AllergenStudios/AdventureKit
 cd AdventureKit
 pip install -r requirements.txt
-mv main.py adventurekit.py
-mv adventurekit.py ..
+python sample.py
 ```
 
 ### All Functions:
