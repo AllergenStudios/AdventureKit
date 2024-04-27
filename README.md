@@ -107,7 +107,7 @@ adventure.start("start")
 ### Get Started:
 
 AdventureKit is not on PyPi as of right now, though you can easily install it through the terminal.
-The easiest way is to use my github package manager IMP, it will require you to have a folder called venv for your virtualenv though.
+The easiest way is to use my github package manager [IMP](https://github.com/AllergenStudios/InstallMyPackages).
 
 ```bash
 imp https://github.com/AllergenStudios/AdventureKit --mainfile adventurekit.py
