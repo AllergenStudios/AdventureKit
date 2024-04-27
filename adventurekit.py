@@ -100,6 +100,13 @@ player_current_path = "Unset"
 
 player_stats = {}
 
+
+
+def hexColor(hex, background=False):
+    h = hex.lstrip('#')
+    r = tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
+    return '\033[{};2;{};{};{}m'.format(48 if background else 38, r[0], r[1], r[2])
+
 class TextAdventure:
     def __init__(self):
         self.paths = {}
@@ -130,15 +137,15 @@ class TextAdventure:
         @staticmethod
         def text(prompt, pawn=None):
             if pawn is None:
-                stdin = input(f"{colorama.Fore.GREEN}{prompt}{colorama.Fore.LIGHTBLACK_EX}: {colorama.Fore.RESET}")
+                stdin = input(f"{hexColor('#4cb191')}{prompt}{hexColor('#1c1c25')}: {colorama.Fore.RESET}")
             elif pawn:
-                stdin = input(f"{colorama.Fore.BLUE}{pawn}{colorama.Fore.LIGHTBLACK_EX}: {colorama.Fore.GREEN}{prompt}{colorama.Fore.LIGHTBLACK_EX}: {colorama.Fore.RESET}")
+                stdin = input(f"{hexColor('#2596be')}{pawn}{hexColor('#1c1c25')}: {hexColor('#4cb191')}{prompt}{hexColor('#1c1c25')}: {colorama.Fore.RESET}")
 
         @staticmethod
         def bool(prompt, pawn=None):
             if pawn is None:
                 while True:
-                    stdin = input(f"{colorama.Fore.GREEN}{prompt}{colorama.Fore.LIGHTBLACK_EX} (YES/NO): {colorama.Fore.RESET}")
+                    stdin = input(f"{hexColor('#4cb191')}{prompt}{hexColor('#1c1c25')} (YES/NO): {colorama.Fore.RESET}")
                     if stdin.lower() in valid_yes:
                         return True
                         break
@@ -149,7 +156,7 @@ class TextAdventure:
                         print(f"{colorama.Fore.LIGHTRED_EX}That is not a valid answer.{colorama.Fore.RESET}")
             elif pawn:
                 while True:
-                    stdin = input(f"{colorama.Fore.BLUE}{pawn}{colorama.Fore.LIGHTBLACK_EX}: {colorama.Fore.GREEN}{prompt}{colorama.Fore.LIGHTBLACK_EX} (YES/NO): {colorama.Fore.RESET}")
+                    stdin = input(f"{hexColor('#2596be')}{pawn}{hexColor('#1c1c25')}: {hexColor('#4cb191')}{prompt}{hexColor('#1c1c25')} (YES/NO): {colorama.Fore.RESET}")
                     if stdin.lower() in valid_yes:
                         return True
                         break
@@ -162,12 +169,12 @@ class TextAdventure:
         @staticmethod
         def multiChoice(prompt, choices, pawn=None):
             if pawn is None:
-                print(f"{colorama.Fore.GREEN}{prompt}{colorama.Fore.LIGHTBLACK_EX} (MULTICHOICE){colorama.Fore.RESET}")
+                print(f"{hexColor('#4cb191')}{prompt}{hexColor('#1c1c25')} (MULTICHOICE){colorama.Fore.RESET}")
                 for choice in choices:
-                    print(f"  {colorama.Fore.LIGHTBLACK_EX}◆{choices.index(choice) + 1}{colorama.Fore.BLUE} {choice} {colorama.Fore.RESET}")
+                    print(f"  {hexColor('#1c1c25')}◆{choices.index(choice) + 1}{hexColor('#2596be')} {choice} {colorama.Fore.RESET}")
                 while True:
                     try:
-                        stdin = int(input(f"{colorama.Fore.LIGHTBLACK_EX}CHOICE: {colorama.Fore.RESET}"))
+                        stdin = int(input(f"{hexColor('#1c1c25')}CHOICE: {colorama.Fore.RESET}"))
                     except ValueError:
                         print(f"{colorama.Fore.LIGHTRED_EX}That is not a valid answer.{colorama.Fore.RESET}")
                         continue
@@ -181,12 +188,12 @@ class TextAdventure:
                         print(f"{colorama.Fore.LIGHTRED_EX}That is not a valid answer.{colorama.Fore.RESET}")
 
             elif pawn:
-                print(f"{colorama.Fore.BLUE}{pawn}{colorama.Fore.LIGHTBLACK_EX}: {colorama.Fore.GREEN}{prompt}{colorama.Fore.LIGHTBLACK_EX} (MULTICHOICE){colorama.Fore.RESET}")
+                print(f"{hexColor('#2596be')}{pawn}{hexColor('#1c1c25')}: {hexColor('#4cb191')}{prompt}{hexColor('#1c1c25')} (MULTICHOICE){colorama.Fore.RESET}")
                 for choice in choices:
-                    print(f"  {colorama.Fore.LIGHTBLACK_EX}◆{choices.index(choice) + 1}{colorama.Fore.BLUE} {choice} {colorama.Fore.RESET}")
+                    print(f"  {hexColor('#1c1c25')}◆{choices.index(choice) + 1}{hexColor('#2596be')} {choice} {colorama.Fore.RESET}")
                 while True:
                     try:
-                        stdin = int(input(f"{colorama.Fore.LIGHTBLACK_EX}CHOICE: {colorama.Fore.RESET}"))
+                        stdin = int(input(f"{hexColor('#1c1c25')}CHOICE: {colorama.Fore.RESET}"))
                     except ValueError:
                         print(f"{colorama.Fore.LIGHTRED_EX}That is not a valid answer.{colorama.Fore.RESET}")
                         continue
@@ -209,9 +216,9 @@ class TextAdventure:
     @staticmethod
     def say(text, pawn=None):
         if pawn is None:
-            print(f"{colorama.Fore.GREEN}{text}{colorama.Fore.RESET}")
+            print(f"{hexColor('#4cb191')}{text}{colorama.Fore.RESET}")
         elif pawn:
-            print(f"{colorama.Fore.BLUE}{pawn}{colorama.Fore.LIGHTBLACK_EX}: {colorama.Fore.GREEN}{text}"
+            print(f"{hexColor('#2596be')}{pawn}{hexColor('#1c1c25')}: {hexColor('#4cb191')}{text}"
                   f"{colorama.Fore.RESET}")
     @staticmethod
     def wait(seconds):
